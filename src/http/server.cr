@@ -522,7 +522,7 @@ class HTTP::Server
     # TODO: This needs more refinement. Not every exception is an actual server
     # error and should be logged as such. Client malfunction should only be informational.
     # See https://github.com/crystal-lang/crystal/pull/9034#discussion_r407038999
-    Log.error(exception: e) { "Error while connecting a new socket" }
+Log.error(exception: e) { "Error while connecting a new socket: #{e.message}" }
   end
 
   # Builds all handlers as the middleware for `HTTP::Server`.
